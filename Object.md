@@ -44,12 +44,15 @@ console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
 <br/>
 <br/>
 <a id="Object.create">Object.create</a>
+
+
 ```
 创建一个新对象，带有指定的原型对象和属性。
 ```
+<br/>
+<br/>
 
-<br/>
-<br/>
+
 <a id="Object.defineProperty">Object.defineProperty</a>
 ```
 直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
@@ -69,9 +72,13 @@ Object.defineProperty(obj, 'name', {
     value: '张三'
 })
 ```
+
+
 <br/>
 <br/>
+
 <a id="Object.defineProperties">Object.defineProperties</a>
+
 ```
 方法直接在一个对象上定义一个或多个新的属性或修改现有属性，并返回该对象。
 var obj = new Object();
