@@ -7,6 +7,8 @@
 <br/>
 
 
+<a id="JSON.stringify">JSON.stringify</a>
+
 ```
 var a = 1;
 ```
