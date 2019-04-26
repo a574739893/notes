@@ -15,8 +15,8 @@
 <a id="Object.assign">Object.assign</a>
 
 ```
-将所有可枚举属性的值从一个或多个源对象复制到目标对象。
-如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。
+// 将所有可枚举属性的值从一个或多个源对象复制到目标对象。
+// 如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。
 let obj1 = { a: 0 , b: { c: 0}}; 
 let obj2 = Object.assign({}, obj1); 
 console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}} 
@@ -48,7 +48,25 @@ console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
 
 
 ```
-创建一个新对象，带有指定的原型对象和属性。
+// 创建一个新对象，带有指定的原型对象和属性。
+var o;
+
+o = Object.create(Object.prototype, {
+  // foo会成为所创建对象的数据属性
+  foo: { 
+    writable:true,
+    configurable:true,
+    value: "hello" 
+  },
+  // bar会成为所创建对象的访问器属性
+  bar: {
+    configurable: false,
+    get: function() { return 10 },
+    set: function(value) {
+      console.log("Setting `o.bar` to", value);
+    }
+  }
+});
 ```
 <br/>
 <br/>
@@ -56,14 +74,14 @@ console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
 
 <a id="Object.defineProperty">Object.defineProperty</a>
 ```
-直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
-该方创建一个新的属性，如果不指定。configurable、enumerable、writable 默认值都是 false
-configurable	是否可删除		(不可修改)
-enumerable		for-in 循环
-writable		是否可修改
-value			
-get
-set
+// 直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
+// 该方创建一个新的属性，如果不指定。configurable、enumerable、writable 默认值都是 false
+// configurable	是否可删除		(不可修改)
+// enumerable		for-in 循环
+// writable		是否可修改
+// value			
+// get
+// set
 var obj = new Object();
 
 Object.defineProperty(obj, 'name', {
@@ -81,7 +99,7 @@ Object.defineProperty(obj, 'name', {
 <a id="Object.defineProperties">Object.defineProperties</a>
 
 ```
-方法直接在一个对象上定义一个或多个新的属性或修改现有属性，并返回该对象。
+// 方法直接在一个对象上定义一个或多个新的属性或修改现有属性，并返回该对象。
 var obj = new Object();
 Object.defineProperties(obj, {
     name: {
@@ -106,6 +124,7 @@ console.log(obj.name, obj.age) // 张三, 18
 <a id="Object.entries">Object.entries</a>
 
 ```
+// 返回一个给定对象自身可枚举属性的键值对数组。
 const obj = { foo: 'bar', baz: 42 };
 console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
 
