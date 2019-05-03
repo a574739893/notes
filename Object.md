@@ -3,6 +3,20 @@
 - [Object.defineProperty()](#Object.defineProperty)
 - [Object.defineProperties()](#Object.defineProperties)
 - [Object.entries()](#Object.entries)
+- [Object.freeze()](#Object.freeze)
+- [Object.isFrozen()](#Object.isFrozen)
+- [Object.preventExtensions()](#Object.preventExtensions)
+- [Object.isExtensible()](#Object.isExtensible)
+- [Object.seal()](#Object.seal)
+- [Object.isSealed()](#Object.isSealed)
+
+
+
+<a id="Object.aaaa">Object.aaaa</a>
+```
+// 
+
+```
 
 
 <br/>
@@ -155,4 +169,105 @@ Object.entries(obj).forEach(([key, value]) => {
 console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
 });
 
+```
+
+<br/>
+<br/>
+
+<a id="Object.freeze">Object.freeze</a>
+
+```
+// 冻结一个对象，被冻结的对象不能被修改；不能添加新属性、删除已有属性、修改已有属性
+// 深冻结函数
+obj1 = {
+	internal: {}
+}
+
+function deepFreeze(obj) {
+	var propNames = Object.getOwnPropertyNames(obj);
+	propNames.forEach( (item) => {
+		var prop = obj[item];
+
+		if ( typeof prop == "object" && prop !== null ) {
+			deepFreeze(prop);
+		}
+	})
+
+	return Object.freeze(obj);
+}
+
+deepFreeze(obj1);
+
+```
+
+<br/>
+<br/>
+
+<a id="Object.isFrozen">Object.isFrozen</a>
+```
+// 判断一个对象是否被冻结。
+
+```
+
+<a id="Object.preventExtensions">Object.preventExtensions</a>
+```
+// 让一个对象不能再添加新的属性
+// 返回一个不可扩展的对象
+var obj = {};
+var obj2 = Object.preventExtensions(obj);
+obj === obj2;  // true
+ 
+// 字面量方式定义的对象默认是可扩展的.
+var empty = {};
+Object.isExtensible(empty) //=== true
+
+```
+
+
+<a id="Object.isExtensible">Object.isExtensible</a>
+```
+// 判断一个对象是否可以添加新的属性
+
+var empty = {};
+Object.isExtensible(empty); // === true
+
+// ...可以变的不可扩展.
+Object.preventExtensions(empty);
+Object.isExtensible(empty); // === false
+
+// 密封对象是不可扩展的.
+var sealed = Object.seal({});
+Object.isExtensible(sealed); // === false
+```
+
+
+<a id="Object.seal">Object.seal</a>
+```
+// 阻止添加新属性，并将所有现有属性为不可配置。当前属性只有可写才可以改变
+
+const object1 = {
+  property1: 42
+};
+
+Object.seal(object1);
+object1.property1 = 33;
+console.log(object1.property1);
+// expected output: 33
+
+delete object1.property1; // 密封时无法删除
+console.log(object1.property1);
+// expected output: 33
+```
+
+<a id="Object.isSealed">Object.isSealed</a>
+```
+// 判断一个对象是否被密封
+
+// 新建的对象默认不是密封的.
+var empty = {};
+Object.isSealed(empty); // === false
+
+// 如果你把一个空对象变的不可扩展,则它同时也会变成个密封对象.
+Object.preventExtensions(empty);
+Object.isSealed(empty); // === true
 ```
