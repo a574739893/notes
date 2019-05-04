@@ -31,6 +31,7 @@
 ```
 // 将所有可枚举属性的值从一个或多个源对象复制到目标对象。
 // 如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。
+
 let obj1 = { a: 0 , b: { c: 0}}; 
 let obj2 = Object.assign({}, obj1); 
 console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}} 
@@ -88,16 +89,20 @@ o = Object.create(Object.prototype, {
 
 <a id="Object.defineProperty">Object.defineProperty</a>
 ```
+
+// 数据属性                     访问器属性
+// configurable                 configurable      是否可删除   (不可修改)
+// enumerable                   enumerable        for-in 循环
+// writable                                        是否可修改
+// value                        
+//                              Get
+//                              Set
+
+
 // 直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
 // 该方创建一个新的属性，如果不指定。configurable、enumerable、writable 默认值都是 false
-// configurable	是否可删除		(不可修改)
-// enumerable		for-in 循环
-// writable		是否可修改
-// value			
-// get
-// set
-var obj = new Object();
 
+var obj = new Object();
 Object.defineProperty(obj, 'name', {
     configurable: false,
     writable: true,
@@ -114,6 +119,7 @@ Object.defineProperty(obj, 'name', {
 
 ```
 // 方法直接在一个对象上定义一个或多个新的属性或修改现有属性，并返回该对象。
+
 var obj = new Object();
 Object.defineProperties(obj, {
     name: {
@@ -139,6 +145,7 @@ console.log(obj.name, obj.age) // 张三, 18
 
 ```
 // 返回一个给定对象自身可枚举属性的键值对数组。
+
 const obj = { foo: 'bar', baz: 42 };
 console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
 
@@ -146,25 +153,25 @@ console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
 const obj = { 0: 'a', 1: 'b', 2: 'c' };
 console.log(Object.entries(obj)); // [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]
 
-// array like object with random key ordering
+// 具有随机键排序的对象数组
 const anObj = { 100: 'a', 2: 'b', 7: 'c' };
 console.log(Object.entries(anObj)); // [ ['2', 'b'], ['7', 'c'], ['100', 'a'] ]
 
-// getFoo is property which isn't enumerable
+// getFoo是不可枚举的属性
 const myObj = Object.create({}, { getFoo: { value() { return this.foo; } } });
 myObj.foo = 'bar';
 console.log(Object.entries(myObj)); // [ ['foo', 'bar'] ]
 
-// non-object argument will be coerced to an object
+// 非对象参数将被强制转换为对象
 console.log(Object.entries('foo')); // [ ['0', 'f'], ['1', 'o'], ['2', 'o'] ]
 
-// iterate through key-value gracefully
+// 优雅地遍历键值
 const obj = { a: 5, b: 7, c: 9 };
 for (const [key, value] of Object.entries(obj)) {
   console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
 }
 
-// Or, using array extras
+// 或者，使用数组附加功能
 Object.entries(obj).forEach(([key, value]) => {
 console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
 });
@@ -179,6 +186,7 @@ console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
 ```
 // 冻结一个对象，被冻结的对象不能被修改；不能添加新属性、删除已有属性、修改已有属性
 // 深冻结函数
+
 obj1 = {
 	internal: {}
 }
@@ -213,6 +221,7 @@ deepFreeze(obj1);
 ```
 // 让一个对象不能再添加新的属性
 // 返回一个不可扩展的对象
+
 var obj = {};
 var obj2 = Object.preventExtensions(obj);
 obj === obj2;  // true
