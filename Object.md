@@ -3,12 +3,15 @@
 - [Object.defineProperty()](#Object.defineProperty)
 - [Object.defineProperties()](#Object.defineProperties)
 - [Object.entries()](#Object.entries)
+- [Object.fromEntries()](#Object.fromEntries)
 - [Object.freeze()](#Object.freeze)
 - [Object.isFrozen()](#Object.isFrozen)
 - [Object.preventExtensions()](#Object.preventExtensions)
 - [Object.isExtensible()](#Object.isExtensible)
 - [Object.seal()](#Object.seal)
 - [Object.isSealed()](#Object.isSealed)
+- [Object.getOwnPropertyDescriptor()](#Object.getOwnPropertyDescriptor)
+- [Object.getOwnPropertyDescriptors()](#Object.getOwnPropertyDescriptors)
 
 
 
@@ -182,6 +185,36 @@ console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
 <br/>
 <br/>
 
+
+<a id="Object.fromEntries">Object.fromEntries</a>
+```
+// 把键值对列表转换成一个对象
+
+// Map 转化为 Object
+const map = new Map([ ['foo', 'bar'], ['baz', 42] ]);
+const obj = Object.fromEntries(map);
+console.log(obj); // { foo: "bar", baz: 42 }
+
+// Array 转化为 Object
+const arr = [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ];
+const obj = Object.fromEntries(arr);
+console.log(obj); // { 0: "a", 1: "b", 2: "c" }
+
+// 对象转换
+const object1 = { a: 1, b: 2, c: 3 };
+
+const object2 = Object.fromEntries(
+  Object.entries(object1)
+  .map(([ key, val ]) => [ key, val * 2 ])
+);
+
+console.log(object2);
+// { a: 2, b: 4, c: 6 }
+```
+
+<br/>
+<br/>
+
 <a id="Object.freeze">Object.freeze</a>
 
 ```
@@ -211,6 +244,7 @@ deepFreeze(obj1);
 
 <br/>
 <br/>
+
 
 <a id="Object.isFrozen">Object.isFrozen</a>
 ```
@@ -298,3 +332,56 @@ Object.isSealed(sealed); // === true
 // 一个密封对象同时也是不可扩展的.
 Object.isExtensible(sealed); // === false
 ```
+
+<br/>
+<br/>
+
+<a id="Object.getOwnPropertyDescriptor">Object.getOwnPropertyDescriptor</a>
+```
+// 返回对象上一个自有属性对应的描述符 
+// (自有属性是直接赋予该对象的属性，不需要从原型链上进行查找)
+
+var o, d;
+
+o = { get foo() { return 17; } };
+d = Object.getOwnPropertyDescriptor(o, "foo");
+// d {
+//   configurable: true,
+//   enumerable: true,
+//   get: /*the getter function*/,
+//   set: undefined
+// }
+
+o = { bar: 42 };
+d = Object.getOwnPropertyDescriptor(o, "bar");
+// d {
+//   configurable: true,
+//   enumerable: true,
+//   value: 42,
+//   writable: true
+// }
+
+o = {};
+Object.defineProperty(o, "baz", {
+  value: 8675309,
+  writable: false,
+  enumerable: false
+});
+d = Object.getOwnPropertyDescriptor(o, "baz");
+// d {
+//   value: 8675309,
+//   writable: false,
+//   enumerable: false,
+//   configurable: false
+// }
+```
+
+<br/>
+<br/>
+
+<a id="Object.getOwnPropertyDescriptors">Object.getOwnPropertyDescriptors</a>
+```
+// 
+
+```
+
