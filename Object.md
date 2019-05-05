@@ -48,12 +48,13 @@ obj2.b.c = 3;
 console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 3}} 
 console.log(JSON.stringify(obj2)); // { a: 2, b: { c: 3}} 
 
-// Deep Clone 
+// 深克隆
 obj1 = { a: 0 , b: { c: 0}}; 
 let obj3 = JSON.parse(JSON.stringify(obj1)); 
 obj1.a = 4; 
 obj1.b.c = 4; 
 console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
+
 ```
 
 
@@ -90,13 +91,13 @@ o = Object.create(Object.prototype, {
 <a id="Object.defineProperty">Object.defineProperty</a>
 ```
 
-// 数据属性                     访问器属性
-// configurable                 configurable      是否可删除   (不可修改)
-// enumerable                   enumerable        for-in 循环
-// writable                                        是否可修改
-// value                        
-//                              Get
-//                              Set
+// 数据属性       访问器属性
+// configurable   configurable      是否可删除   (不可修改)
+// enumerable     enumerable        for-in 循环
+// writable                          是否可修改
+// value          
+//                Get
+//                Set
 
 
 // 直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
