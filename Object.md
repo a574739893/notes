@@ -12,7 +12,25 @@
 - [Object.isSealed()](#Object.isSealed)
 - [Object.getOwnPropertyDescriptor()](#Object.getOwnPropertyDescriptor)
 - [Object.getOwnPropertyDescriptors()](#Object.getOwnPropertyDescriptors)
+- [Object.get​OwnProperty​Names()](#Object.get​OwnProperty​Names)
+- [Object.getOwnPropertySymbols()](#Object.getOwnPropertySymbols)
+- [Object.keys()](#Object.keys)
+- [Object.values()](#Object.values)
+- [Object.prototype.hasOwnProperty](#Object.hasOwnProperty)
 
+
+
+```
+// 创建新属性，如果不指定  configurable = enumerable = writable = false 
+
+// 数据属性       访问器属性
+// configurable   configurable      是否可删除   (不可修改)
+// enumerable     enumerable        for-in 循环
+// writable                         是否可修改
+// value          
+//                Get
+//                Set
+```
 
 
 <a id="Object.aaaa">Object.aaaa</a>
@@ -68,7 +86,17 @@ console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
 
 ```
 // 创建一个新对象，带有指定的原型对象和属性。
+// 参数二，添加到新创建对象的可枚举属性(即自身定义的属性，不是原型链上的)
 var o;
+
+// 创建一个原型为null的空对象
+o = Object.create(null);
+
+
+o = {};
+// 以字面量方式创建的空对象就相当于:
+o = Object.create(Object.prototype);
+
 
 o = Object.create(Object.prototype, {
   // foo会成为所创建对象的数据属性
@@ -86,6 +114,41 @@ o = Object.create(Object.prototype, {
     }
   }
 });
+
+
+function Constructor(){}
+o = new Constructor();
+// 上面的一句就相当于:
+o = Object.create(Constructor.prototype);
+// 当然,如果在Constructor函数中有一些初始化代码,Object.create不能执行那些代码
+
+
+// 创建一个以另一个空对象为原型,且拥有一个属性p的对象
+o = Object.create({}, { p: { value: 42 } })
+
+// 省略了的属性特性默认为false,所以属性p是不可写,不可枚举,不可配置的:
+o.p = 24
+o.p
+//42
+
+o.q = 12
+for (var prop in o) {
+   console.log(prop)
+}
+//"q"
+
+delete o.p
+//false
+
+//创建一个可写的,可枚举的,可配置的属性p
+o2 = Object.create({}, {
+  p: {
+    value: 42, 
+    writable: true,
+    enumerable: true,
+    configurable: true 
+  } 
+});
 ```
 <br/>
 <br/>
@@ -93,16 +156,6 @@ o = Object.create(Object.prototype, {
 
 <a id="Object.defineProperty">Object.defineProperty</a>
 ```
-
-// 数据属性       访问器属性
-// configurable   configurable      是否可删除   (不可修改)
-// enumerable     enumerable        for-in 循环
-// writable                          是否可修改
-// value          
-//                Get
-//                Set
-
-
 // 直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
 // 该方创建一个新的属性，如果不指定。configurable、enumerable、writable 默认值都是 false
 
@@ -381,7 +434,141 @@ d = Object.getOwnPropertyDescriptor(o, "baz");
 
 <a id="Object.getOwnPropertyDescriptors">Object.getOwnPropertyDescriptors</a>
 ```
-// 
+// 获取一个对象所有的自身属性描述符
 
 ```
 
+<br/>
+<br/>
+
+
+<a id="Object.getOwnPropertySymbols">Object.getOwnPropertySymbols</a>
+```
+// 返回一个对象自身所有 Symbol 属性的数组
+var obj = {};
+var a = Symbol("a");
+var b = Symbol.for("b");
+
+obj[a] = "localSymbol";
+obj[b] = "globalSymbol";
+
+var objectSymbols = Object.getOwnPropertySymbols(obj);
+
+console.log(objectSymbols.length); // 2
+console.log(objectSymbols)         // [Symbol(a), Symbol(b)]
+console.log(objectSymbols[0])      // Symbol(a)
+```
+
+<br/>
+<br/>
+
+<a id="Object.keys">Object.keys</a>
+```
+// 返回其枚举自身属性的对象
+
+var arr = ['a', 'b', 'c'];
+console.log(Object.keys(arr)); // console: ['0', '1', '2']
+
+
+var obj = { 0: 'a', 1: 'b', 2: 'c' };
+console.log(Object.keys(obj)); // console: ['0', '1', '2']
+
+// 具有随机键排序的对象数组
+var anObj = { 100: 'a', 2: 'b', 7: 'c' };
+console.log(Object.keys(anObj)); // console: ['2', '7', '100']
+
+// getFoo is a property which isn't enumerable
+var myObj = Object.create({}, {
+  getFoo: {
+    value: function () { return this.foo; }
+  } 
+});
+myObj.foo = 1;
+console.log(Object.keys(myObj)); // console: ['foo']
+```
+<br/>
+<br/>
+
+<a id="Object.values">Object.values</a>
+```
+// 返回一个数组，其袁术是在对象上找到的可枚举属性值
+var obj = { foo: 'bar', baz: 42 };
+console.log(Object.values(obj)); // ['bar', 42]
+
+// array like object
+var obj = { 0: 'a', 1: 'b', 2: 'c' };
+console.log(Object.values(obj)); // ['a', 'b', 'c']
+
+// array like object with random key ordering
+// when we use numeric keys, the value returned in a numerical order according to the keys
+var an_obj = { 100: 'a', 2: 'b', 7: 'c' };
+console.log(Object.values(an_obj)); // ['b', 'c', 'a']
+
+// getFoo is property which isn't enumerable
+var my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
+my_obj.foo = 'bar';
+console.log(Object.values(my_obj)); // ['bar']
+
+// non-object argument will be coerced to an object
+console.log(Object.values('foo')); // ['f', 'o', 'o']
+
+```
+<br/>
+<br/>
+
+<a id="Object.hasOwnProperty">Object.prototype.hasOwnProperty</a>
+```
+// 用来检测一个对象是否含有特定的自身属性，该方法会忽略掉原型链继承的属性
+var foo = {
+    hasOwnProperty: function() {
+        return false;
+    },
+    bar: 'Here be dragons'
+};
+
+foo.hasOwnProperty('bar'); // 始终返回 false
+
+// 如果担心这种情况，可以直接使用原型链上真正的 hasOwnProperty 方法
+({}).hasOwnProperty.call(foo, 'bar'); // true
+
+// 也可以使用 Object 原型上的 hasOwnProperty 属性
+Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
+
+```
+
+<br/>
+<br/>
+
+<a id="Object.get​OwnProperty​Names">Object.get​OwnProperty​Names</a>
+```
+// 返回一个数组，由对象所有自身属性的属性名
+var arr = ["a", "b", "c"];
+console.log(Object.getOwnPropertyNames(arr).sort()); // ["0", "1", "2", "length"]
+
+// 类数组对象
+var obj = { 0: "a", 1: "b", 2: "c"};
+console.log(Object.getOwnPropertyNames(obj).sort()); // ["0", "1", "2"]
+
+// 使用Array.forEach输出属性名和属性值
+Object.getOwnPropertyNames(obj).forEach(function(val, idx, array) {
+  console.log(val + " -> " + obj[val]);
+});
+// 输出
+// 0 -> a
+// 1 -> b
+// 2 -> c
+
+//不可枚举属性
+var my_obj = Object.create({}, {
+  getFoo: {
+    value: function() { return this.foo; },
+    enumerable: false
+  }
+});
+my_obj.foo = 1;
+
+console.log(Object.getOwnPropertyNames(my_obj).sort()); // ["foo", "getFoo"]
+```
+
+<br/>
+<br/>
