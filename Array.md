@@ -39,6 +39,7 @@
 <br>
 
 <h6 id='toString' style='background:#676767;color:#fff;padding: 10px;'>toString</h6>
+
 ```
 //  返回数组中每个值的字符串形式拼接，以逗号分隔的字符串
 var color = ['red', 'blue', 'green'];
@@ -49,6 +50,7 @@ console.log(color.toString());  // red,blue,green
 <br>
 
 <h6 id='valueOf' style='background:#676767;color:#fff;padding: 10px;'>valueOf</h6>
+
 ```
 //  返回 Array 对象的原始值
 var array = [1, 2, 3];
