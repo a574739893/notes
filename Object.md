@@ -20,7 +20,7 @@
 - [Object.isFrozen()](#Object.isFrozen)
 - [Object.isSealed()](#Object.isSealed)
 - [Object.prototype.isPrototypeOf()](#Object.prototype.isPrototypeOf)
-- [Object.prototype.propertyIsEnumerable](#Object.prototype.propertyIsEnumerable())
+- [Object.prototype.propertyIsEnumerable()](#Object.prototype.propertyIsEnumerable())
 - [Object​.prototype​.toLocale​String()](#Object​.prototype​.toLocale​String)
 - [Object​.prototype​.toString()](#Object​.prototype​.toString)
 
@@ -647,6 +647,7 @@ console.log(Object.prototype.isPrototypeOf(baz)); // true
 <br/>
 <br/>
 
+
 <a id="Object.prototype​.propertyIsEnumerable">Object.prototype​.propertyIsEnumerable</a>
 ```
 // 返回一个布尔值，表示指定属性是否可枚举
@@ -663,6 +664,7 @@ a.propertyIsEnumerable(0);        // 返回 true
 <br/>
 
 <a id="Object.prototype​.toLocale​String">Object.prototype​.toLocale​String</a>
+
 ```
 // 返回调用 toString() 的结果
 
@@ -673,6 +675,7 @@ a.propertyIsEnumerable(0);        // 返回 true
 
 
 <a id="Object.prototype​.toString">Object.prototype​.toString</a>
+
 ```
 // 返回表示该对象的字符串
 
