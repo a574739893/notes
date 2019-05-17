@@ -5,36 +5,51 @@
 	- [join()](#join)
 - 堆、栈
 	- [push()](#push)
-   	- [pop()](#pop)
-   	- [shift()](#shift)
-   	- [unshift()](#unshift)
+	- [pop()](#pop)
+	- [shift()](#shift)
+	- [unshift()](#unshift)
 - 排序
-   	- [reverse()](#reverse)
-   	- [sort()](#sort)
+	- [reverse()](#reverse)
+	- [sort()](#sort)
 - 操作
-   	- [concat()](#concat)
-   	- [splice()](#splice)
-   	- [slice()](#slice)
+	- [concat()](#concat)
+	- [splice()](#splice)
+	- [slice()](#slice)
 - 位置
-   	- [indexOf()](#indexOf)
-   	- [lastIndexOf()](#lastIndexOf)
+	- [indexOf()](#indexOf)
+	- [lastIndexOf()](#lastIndexOf)
 - 迭代
-   	- [every()](#every)
-   	- [filter()](#filter)
-   	- [map()](#map)
-   	- [some()](#some)
-   	- [forEach()](#forEach)
+	- [every()](#every)
+	- [filter()](#filter)
+	- [map()](#map)
+	- [some()](#some)
+	- [forEach()](#forEach)
 - 归并
-   	- [reduce()](#reduce)
-   	- [reduceRight()](#reduceRight)
+	- [reduce()](#reduce)
+	- [reduceRight()](#reduceRight)
+
+
+- [Array.from()](#Array.from)
+- [Array.isArray()](#Array.isArray)
+- [Array.of()](#Array.of)
 
 
 
+<h6 id="Array.aaa" style="background:#676767;color:#fff;padding: 10px;">Array.aaa</h6>
+
+```
+//  Array.of(7) 创建一个具有单个元素 7 的数组，而 Array(7) 创建一个长度为7的空数组
+```
+<br>
+<br>
+
+
 <br>
 <br>
 <br>
 <br>
 <br>
+
 
 <h6 id="toString" style="background:#676767;color:#fff;padding: 10px;">toString</h6>
 
@@ -189,9 +204,48 @@ console.log(array); //  Array(3) [ 1, 4, 3 ]
 var array = [1, 2, 3];
 var array2 = array.slice(0, 2);
 console.log(array2) //  Array [ 1, 2 ]
+
+
 ```
 
 <br>
 <br>
-https://www.jianshu.com/p/24547d4e565f
+
   
+
+
+<h6 id="Array.from" style="background:#676767;color:#fff;padding: 10px;">Array.from</h6>
+
+```
+//  类数组、可迭代对象中，创建一个新数组
+Array.from('foo'); 
+// ["f", "o", "o"]
+
+let s = new Set(['foo', window]); 
+Array.from(s); 
+// ["foo", window]
+
+let m = new Map([[1, 2], [2, 4], [4, 8]]);
+Array.from(m); 
+// [[1, 2], [2, 4], [4, 8]]
+```
+
+<br>
+<br>
+
+
+<h6 id="Array.isArray" style="background:#676767;color:#fff;padding: 10px;">Array.isArray</h6>
+
+```
+// 用于确定是否是一个 Array
+Array.isArray([1, 2, 3]);  
+// true
+Array.isArray({foo: 123}); 
+// false
+Array.isArray("foobar");   
+// false
+Array.isArray(undefined);  
+// false
+```
+<br>
+<br>

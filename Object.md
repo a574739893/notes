@@ -1,28 +1,39 @@
-- [Object.assign()](#Object.assign)
-- [Object.create()](#Object.create)
-- [Object.defineProperty()](#Object.defineProperty)
-- [Object.defineProperties()](#Object.defineProperties)
-- [Object.entries()](#Object.entries)
-- [Object.fromEntries()](#Object.fromEntries)
-- [Object.freeze()](#Object.freeze)
-- [Object.preventExtensions()](#Object.preventExtensions)
-- [Object.seal()](#Object.seal)
-- [Object.getOwnPropertyDescriptor()](#Object.getOwnPropertyDescriptor)
-- [Object.getOwnPropertyDescriptors()](#Object.getOwnPropertyDescriptors)
-- [Object.get​OwnProperty​Names()](#Object.get​OwnProperty​Names)
-- [Object.getOwnPropertySymbols()](#Object.getOwnPropertySymbols)
-- [Object.keys()](#Object.keys)
-- [Object.values()](#Object.values)
-- [Object.prototype.hasOwnProperty()](#Object.prototype.hasOwnProperty)
-- [Object.getPrototypeOf()](#Object.getPrototypeOf)
-- [Object.is()](#Object.is)
-- [Object.isExtensible()](#Object.isExtensible)
-- [Object.isFrozen()](#Object.isFrozen)
-- [Object.isSealed()](#Object.isSealed)
-- [Object.prototype.isPrototypeOf()](#Object.prototype.isPrototypeOf)
-- [Object.prototype.propertyIsEnumerable()](#Object.prototype.propertyIsEnumerable())
-- [Object​.prototype​.toLocale​String()](#Object​.prototype​.toLocale​String)
-- [Object​.prototype​.toString()](#Object​.prototype​.toString)
+- 创建 
+  - [Object.assign()](#Object.assign)
+  - [Object.create()](#Object.create)
+
+- 修改
+  - [Object.defineProperty()](#Object.defineProperty)
+  - [Object.defineProperties()](#Object.defineProperties)
+
+- 转换
+  - [Object.entries()](#Object.entries)
+  - [Object.fromEntries()](#Object.fromEntries)
+
+- 限制
+  - [Object.freeze()](#Object.freeze)
+  - [Object.preventExtensions()](#Object.preventExtensions)
+  - [Object.seal()](#Object.seal)
+  - [Object.isExtensible()](#Object.isExtensible)
+  - [Object.isFrozen()](#Object.isFrozen)
+  - [Object.isSealed()](#Object.isSealed)
+
+- 检测
+  - [Object.getOwnPropertyDescriptor()](#Object.getOwnPropertyDescriptor)
+  - [Object.getOwnPropertyDescriptors()](#Object.getOwnPropertyDescriptors)
+  - [Object.get​OwnProperty​Names()](#Object.get​OwnProperty​Names)
+  - [Object.getOwnPropertySymbols()](#Object.getOwnPropertySymbols)
+  - [Object.getPrototypeOf()](#Object.getPrototypeOf)
+  - [Object.keys()](#Object.keys)
+  - [Object.values()](#Object.values)
+  - [Object.is()](#Object.is)
+
+- prototype
+  - [Object.prototype.hasOwnProperty()](#Object.prototype.hasOwnProperty)
+  - [Object.prototype.isPrototypeOf()](#Object.prototype.isPrototypeOf)
+  - [Object.prototype.propertyIsEnumerable()](#Object.prototype.propertyIsEnumerable())
+  - [Object​.prototype​.toLocale​String()](#Object​.prototype​.toLocale​String)
+  - [Object​.prototype​.toString()](#Object​.prototype​.toString)
 
 
 
@@ -491,7 +502,7 @@ console.log(Object.keys(myObj)); // console: ['foo']
 
 <a id="Object.values">Object.values</a>
 ```
-// 返回一个数组，其袁术是在对象上找到的可枚举属性值
+// 返回一个数组，其元素是在对象上找到的可枚举属性值
 var obj = { foo: 'bar', baz: 42 };
 console.log(Object.values(obj)); // ['bar', 42]
 
@@ -628,7 +639,7 @@ Object.is(NaN, 0/0);         // true
 
 <a id="Object​.prototype​.isPrototypeOf">Object​.prototype​.isPrototypeOf</a>
 ```
-// 测试一个对象是否存在于另一个对象的原型链上
+  // 测试一个对象是否存在于另一个对象的原型链上
 function Foo() {}
 function Bar() {}
 function Baz() {}

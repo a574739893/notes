@@ -1,5 +1,7 @@
 - [Symbol](#Symbol)
 
+
+
 <a id="Symbol">Symbol</a>
 ```
 // 新的数据类型
@@ -10,3 +12,16 @@ Symbol.for() 首先在全局搜索有没有改参数名称的 Symbol 值，如�
 
 Symbol.keyFor方法检测该Symbol是否已创建
 ```
+
+<br/>
+<br/>
+
+
+#### Set、Map
+作用：
+	如果需要使用非数组性索引，就会用非数组对象创建所需的数据结构
+
+Set 常被用来检查对象中是否存在某个键名
+Map 集合常被用来获取已存的信息
+
+
