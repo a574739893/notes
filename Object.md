@@ -213,6 +213,7 @@ console.log(obj.name, obj.age) // 张三, 18
 
 ```
 // 返回一个给定对象自身可枚举属性的键值对数组。
+// 可返回不可枚举属性
 
 const obj = { foo: 'bar', baz: 42 };
 console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
@@ -527,7 +528,7 @@ console.log(Object.values('foo')); // ['f', 'o', 'o']
 <br/>
 <br/>
 
-<a id="Object.hasOwnProperty">Object.prototype.hasOwnProperty</a>
+<a id="Object.prototype.hasOwnProperty">Object.prototype.hasOwnProperty</a>
 ```
 // 用来检测一个对象是否含有特定的自身属性，该方法会忽略掉原型链继承的属性
 var foo = {
