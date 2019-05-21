@@ -31,10 +31,9 @@
 - prototype
   - [Object.prototype.hasOwnProperty()](#Object.prototype.hasOwnProperty)
   - [Object.prototype.isPrototypeOf()](#Object.prototype.isPrototypeOf)
-  - [Object.prototype.propertyIsEnumerable()](#Object.prototype.propertyIsEnumerable())
+  - [Object.prototype​.propertyIsEnumerable()](#Object.prototype​.propertyIsEnumerable)
   - [Object​.prototype​.toLocale​String()](#Object​.prototype​.toLocale​String)
   - [Object​.prototype​.toString()](#Object​.prototype​.toString)
-
 
 
 
