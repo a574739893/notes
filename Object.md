@@ -638,7 +638,7 @@ Object.is(NaN, 0/0);         // true
 ```
 
 
-<a id="Object​.prototype.isPrototypeOf">Object​.prototype.isPrototypeOf</a>
+<a id="Object.prototype.isPrototypeOf">Object.prototype.isPrototypeOf</a>
 ```
   // 测试一个对象是否存在于另一个对象的原型链上
 function Foo() {}
