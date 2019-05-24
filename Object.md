@@ -553,6 +553,7 @@ Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
 <a id="Object.get​OwnProperty​Names">Object.get​OwnProperty​Names</a>
 ```
 // 返回一个数组，由对象所有自身属性的属性名
+// 包含不可枚举
 var arr = ["a", "b", "c"];
 console.log(Object.getOwnPropertyNames(arr).sort()); // ["0", "1", "2", "length"]
 
