@@ -1,61 +1,50 @@
 - 转换
-	- [toString()](#toString)
-	- [valueOf()](#valueOf)
-	- [toLocaleString()](#toLocaleString)
-	- [join()](#join)
+	- [Array.prototype.toString()](#Array.prototype.toString)
+	- [Array.prototype.toLocaleString()](#Array.prototype.toLocaleString)
+	- [Array.prototype.join()](#Array.prototype.join)
 - 堆、栈
-	- [push()](#push)
-	- [pop()](#pop)
-	- [shift()](#shift)
-	- [unshift()](#unshift)
+	- [Array.prototype.push()](#Array.prototype.push)
+	- [Array.prototype.pop()](#Array.prototype.pop)
+	- [Array.prototype.shift()](#Array.prototype.shift)
+	- [Array.prototype.unshift()](#Array.prototype.unshift)
 - 排序
-	- [reverse()](#reverse)
-	- [sort()](#sort)
+	- [Array.prototype.reverse()](#Array.prototype.reverse)
+	- [Array.prototype.sort()](#Array.prototype.sort)
 - 操作
-	- [concat()](#concat)
-	- [splice()](#splice)
-	- [slice()](#slice)
+	- [Array.prototype.concat()](#Array.prototype.concat)
+	- [Array.prototype.splice()](#Array.prototype.splice)
+	- [Array.prototype.slice()](#Array.prototype.slice)
 - 位置
-	- [indexOf()](#indexOf)
-	- [lastIndexOf()](#lastIndexOf)
+	- [Array.prototype.indexOf()](#Array.prototype.indexOf)
 - 迭代
-	- [every()](#every)
-	- [filter()](#filter)
-	- [map()](#map)
-	- [some()](#some)
-	- [forEach()](#forEach)
+	- [Array.prototype.every()](#Array.prototype.every)
+	- [Array.prototype.filter()](#Array.prototype.filter)
+	- [Array.prototype.map()](#Array.prototype.map)
+	- [Array.prototype.some()](#Array.prototype.some)
+	- [Array.prototype.forEach()](#Array.prototype.forEach)
 - 归并
-	- [reduce()](#reduce)
-	- [reduceRight()](#reduceRight)
+	- [Array.prototype.reduce()](#Array.prototype.reduce)
+	- [Array.prototype.reduceRight()](#Array.prototype.reduceRight)
 
 
 - [Array.from()](#Array.from)
 - [Array.isArray()](#Array.isArray)
 - [Array.of()](#Array.of)
-- [Array.copyWithin()](#Array.copyWithin)
-- [Array.entries()](#Array.entries)
-- [Array.fill()](#Array.fill)
-- [Array.find()](#Array.find)
-- [Array.findIndex()](#Array.findIndex)
-- [Array.flat()](#Array.flat)
-- [Array.flatMap()](#Array.flatMap)
-- [Array.includes()](#Array.includes)
-- [Array.keys()](#Array.keys)
-- [Array.lastIndexOf()](#Array.lastIndexOf)
-- [Array.values()](#Array.values)
+- [Array.prototype.copyWithin()](#Array.prototype.copyWithin)
+- [Array.prototype.entries()](#Array.prototype.entries)
+- [Array.prototype.fill()](#Array.prototype.fill)
+- [Array.prototype.find()](#Array.prototype.find)
+- [Array.prototype.findIndex()](#Array.prototype.findIndex)
+- [Array.prototype.flat()](#Array.prototype.flat)
+- [Array.prototype.flatMap()](#Array.prototype.flatMap)
+- [Array.prototype.includes()](#Array.prototype.includes)
+- [Array.prototype.keys()](#Array.prototype.keys)
+- [Array.prototype.lastIndexOf()](#Array.prototype.lastIndexOf)
+- [Array.prototype.values()](#Array.prototype.values)
 
 
 
 
-
-
-<h6 id="Array.aaa" style="background:#676767;color:#fff;padding: 10px;">Array.aaa</h6>
-
-```
-//  
-```
-<br>
-<br>
 
 
 <br>
@@ -65,7 +54,7 @@
 <br>
 
 
-<h6 id="toString" style="background:#676767;color:#fff;padding: 10px;">toString</h6>
+<h6 id="Array.prototype.toString" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.toString</h6>
 
 ```
 //  返回数组中每个值的字符串形式拼接，以逗号分隔的字符串
@@ -76,53 +65,44 @@ console.log(color.toString());  // red,blue,green
 <br>
 <br>
 
-<h6 id="valueOf" style="background:#676767;color:#fff;padding: 10px;">valueOf</h6>
-
-```
-//  返回 Array 对象的原始值
-var array = [1, 2, 3];
-var array2 = array.valueOf();
-console.log(array2);    // Array(3) [ 1, 2, 3 ]
-```
-<br>
-<br>
-
-<h6 id="toLocaleString" style="background:#676767;color:#fff;padding: 10px;">toLocaleString</h6>
+<h6 id="Array.prototype.toLocaleString" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.toLocaleString</h6>
 
 ```
 //  把数组转换为本地字符串
 var array = [1, 2, 3];
 var array2 = array.toLocaleString();
 console.log(array2) //  1, 2, 3
+
 ```
 <br>
 <br>
 
 
-<h6 id="join" style="background:#676767;color:#fff;padding: 10px;">join</h6>
+<h6 id="Array.prototype.join" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.join</h6>
 
 ```
 //  通过指定的分割符进行分割，然后返回一个字符串
 var array = [1, 2, 3];
 var array2 = array.jon(".");
 console.log(array2); // 1.2.3
+（使用四中不同的分隔符连接元素）（连接类数组对象）
 ```
 <br>
 <br>
 
-<h6 id="push" style="background:#676767;color:#fff;padding: 10px;">push</h6>
+<h6 id="Array.prototype.push" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.push</h6>
 
 ```
 //  向数组末尾添加元素，并返回
 var array = [1, 2, 3];
 array.push(4, 5, 6);
 console.log(array)  // Array(6) [ 1, 2, 3, 4, 5, 6 ]
+（合并两个数组）（像数组一样使用对象）
 ```
-
 <br>
 <br>
 
-<h6 id="pop" style="background:#676767;color:#fff;padding: 10px;">pop</h6>
+<h6 id="Array.prototype.pop" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.pop</h6>
 
 ```
 //  删除数组最后一个元素，并返回
@@ -134,7 +114,7 @@ console.log(array)  // Array [ 1, 2 ]
 <br>
 <br>
 
-<h6 id="shift" style="background:#676767;color:#fff;padding: 10px;">shift</h6>
+<h6 id="Array.prototype.shift" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.shift</h6>
 
 ```
 //  把数组第一个元素删除，并返回第一个元素的值
@@ -146,7 +126,7 @@ console.log(array); // Array [ 2, 3 ]
 <br>
 <br>
 
-<h6 id="unshift" style="background:#676767;color:#fff;padding: 10px;">unshift</h6>
+<h6 id="Array.prototype.unshift" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.unshift</h6>
 
 ```
 //  向数组开头添加一个或多个元素，并返回
@@ -158,7 +138,7 @@ console.log(array); // Array(6) [ 4, 5, 6, 1, 2, 3 ]
 <br>
 <br>
 
-<h6 id="reverse" style="background:#676767;color:#fff;padding: 10px;">reverse</h6>
+<h6 id="Array.prototype.reverse" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.reverse</h6>
 
 ```
 //  颠倒数组中元素的顺序
@@ -170,7 +150,7 @@ console.log(array); // Array(3) [ 3, 2, 1 ]
 <br>
 <br>
 
-<h6 id="sort" style="background:#676767;color:#fff;padding: 10px;">sort</h6>
+<h6 id="Array.prototype.sort" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.sort</h6>
 
 ```
 //  对数组的元素进行排序
@@ -178,11 +158,11 @@ var array = [10, 5, 40, 25, 1000, 1];
 array.sort();
 console.log(array); // Array(6) [ 1, 1000, 25, 40, 5, 10 ]
 ```
-
+（创建、显示及排列数组）（对非ASCII字符排序）（使用映射改善排序）
 <br>
 <br>
 
-<h6 id="concat" style="background:#676767;color:#fff;padding: 10px;">concat</h6>
+<h6 id="Array.prototype.concat" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.concat</h6>
 
 ```
 //  用于连接两个或多个数组
@@ -196,7 +176,7 @@ console.log(array2.concat(array, array3)); Array(7) [ 4, 5, 1, 2, 3, 6, 7 ]
 <br>
 <br>
 
-<h6 id="splice" style="background:#676767;color:#fff;padding: 10px;">splice</h6>
+<h6 id="Array.prototype.splice" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.splice</h6>
 
 ```
 //  添加/删除
@@ -211,7 +191,7 @@ console.log(array); //  Array(3) [ 1, 4, 3 ]
 <br>
 <br>
 
-<h6 id="slice" style="background:#676767;color:#fff;padding: 10px;">slice</h6>
+<h6 id="Array.prototype.slice" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.slice</h6>
 
 ```
 //  从以有的数组中返回选定的元素
@@ -274,7 +254,7 @@ Array.isArray(undefined);
 <br>
 
 
-<h6 id="Array.copyWithin" style="background:#676767;color:#fff;padding: 10px;">Array.copyWithin</h6>
+<h6 id="Array.prototype.copyWithin" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.copyWithin</h6>
 
 ```
 //  浅复制数组
@@ -309,10 +289,10 @@ i32a.copyWithin(0, 2);
 <br>
 
 
-<h6 id="Array.entries" style="background:#676767;color:#fff;padding: 10px;">Array.entries</h6>
+<h6 id="Array.prototype.entries" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.entries</h6>
 
 ```
-//  返回一个新的 Array iterator 对象
+//  回一个新的Array Iterator对象，该对象包含数组中每个索引的键/值对。
 var array1 = ['a', 'b', 'c'];
 
 var iterator1 = array1.entries();
@@ -324,10 +304,10 @@ console.log(iterator1.next().value);
 <br>
 
 
-<h6 id="Array.every" style="background:#676767;color:#fff;padding: 10px;">Array.every</h6>
+<h6 id="Array.prototype.every" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.every</h6>
 
 ```
-//  测试数组内元素是否能通过某个函数的测试
+//  测试数组所有元素是否能通过某个函数的测试
 var array = [2, 3, 4];
 
 console.log(array.every(function (value) {
@@ -338,7 +318,7 @@ console.log(array.every(function (value) {
 <br>
 <br>
 
-<h6 id="Array.fill" style="background:#676767;color:#fff;padding: 10px;">Array.fill</h6>
+<h6 id="Array.prototype.fill" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.fill</h6>
 
 ```
 //  用固定值填充一个数组
@@ -361,22 +341,7 @@ arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
 <br>
 
 
-<h6 id="Array.aaa" style="background:#676767;color:#fff;padding: 10px;">Array.aaa</h6>
-
-```
-//  创建一个数组，包含通过函数测试的所有元素
-var array = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-
-console.log(array.filter( function (word) {
-	return word.length > 6;
-}))
-```
-<br>
-<br>
-
-
-
-<h6 id="Array.find" style="background:#676767;color:#fff;padding: 10px;">Array.find</h6>
+<h6 id="Array.prototype.find" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.find</h6>
 
 ```
 // 返回数组中通过测试函数的第一个元素的值
@@ -386,12 +351,13 @@ console.log(array.find(function (element) {
 	return element > 10
 }))
 //	12
+（用对象的属性查找数值里的对象）（寻找数组中的质数）
 ```
 <br>
 <br>
 
 
-<h6 id="Array.findIndex" style="background:#676767;color:#fff;padding: 10px;">Array.findIndex</h6>
+<h6 id="Array.prototype.findIndex" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.findIndex</h6>
 
 ```
 //  返回数组中通过测试函数的第一个元素的索引
@@ -401,6 +367,7 @@ console.log(array.findIndex(function (element) {
 	return element > 10
 }))
 //	1
+（寻找数组中首个质数元素的索引）
 ```
 <br>
 <br>
@@ -430,7 +397,7 @@ arr3.flat(Infinity);
 <br>
 <br>
 
-<h6 id="Array.flatMap" style="background:#676767;color:#fff;padding: 10px;">Array.flatMap</h6>
+<h6 id="Array.prototype.flatMap" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.flatMap</h6>
 
 ```
 //  使用映射函数映射每个元素，然后将结果压缩成一个新数组
@@ -445,11 +412,12 @@ arr1.flatMap(x => [x * 2]);
 // 只会将 flatMap 中的函数返回的数组 “压平” 一层
 arr1.flatMap(x => [[x * 2]]);
 // [[2], [4], [6], [8]]
+（归纳（reduce）与合并（concat））
 ```
 <br>
 <br>
 
-<h6 id="Array.forEach" style="background:#676767;color:#fff;padding: 10px;">Array.forEach</h6>
+<h6 id="Array.prototype.forEach" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.forEach</h6>
 
 ```
 //  循环
@@ -458,12 +426,13 @@ var array1 = ['a', 'b', 'c'];
 array1.forEach(function(element) {
   console.log(element);
 });
+（对象复制函数）
 ```
 <br>
 <br>
 
 
-<h6 id="Array.includes" style="background:#676767;color:#fff;padding: 10px;">Array.includes</h6>
+<h6 id="Array.prototype.includes" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.includes</h6>
 
 ```
 //  判断数组是否包含一个指定的值
@@ -479,11 +448,12 @@ console.log(pets.includes('cat'));
 
 console.log(pets.includes('at'));
 // expected output: false
+（fromIndex大于等于数组长度）（计算出的索引小于0）（作为通用方法的 includes()）
 ```
 <br>
 <br>
 
-<h6 id="Array.indexOf" style="background:#676767;color:#fff;padding: 10px;">Array.indexOf</h6>
+<h6 id="Array.prototype.indexOf" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.indexOf</h6>
 
 ```
 //  找到给定元素的第一个索引
@@ -498,12 +468,13 @@ console.log(beasts.indexOf('bison', 2));
 
 console.log(beasts.indexOf('giraffe'));
 // expected output: -1
+（找出指定元素出现的所有位置）（判断一个元素是否在数组里，不在则更新数组）
 ```
 <br>
 <br>
 
 
-<h6 id="Array.keys" style="background:#676767;color:#fff;padding: 10px;">Array.keys</h6>
+<h6 id="Array.prototype.keys" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.keys</h6>
 
 ```
 //  返回一个包含数组中每个索引键的 Array Iterator 对象
@@ -513,13 +484,13 @@ var iterator = array1.keys();
 for (let key of iterator) {
   console.log(key); // expected output: 0 1 2
 }
-
+（索引迭代器会包含哪些没有对应元素的索引）
 ```
 <br>
 <br>
 
 
-<h6 id="Array.lastIndexOf" style="background:#676767;color:#fff;padding: 10px;">Array.lastIndexOf</h6>
+<h6 id="Array.prototype.lastIndexOf" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.lastIndexOf</h6>
 
 ```
 //  返回指定元素在数组中最后一个索引
@@ -530,15 +501,16 @@ console.log(animals.lastIndexOf('Dodo'));
 
 console.log(animals.lastIndexOf('Tiger'));
 // expected output: 1
+（查找所有元素）
 ```
 <br>
 <br>
 
 
-<h6 id="Array.map" style="background:#676767;color:#fff;padding: 10px;">Array.map</h6>
+<h6 id="Array.prototype.map" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.map</h6>
 
 ```
-//  每个元素调用函数后，返回结果
+//  创建一个新数组，每个元素调用函数后，返回结果
 var array1 = [1, 4, 9, 16];
 
 // pass a function to map
@@ -546,12 +518,15 @@ const map1 = array1.map(x => x * 2);
 
 console.log(map1);
 // expected output: Array [2, 8, 18, 32]
+（求数组中每个元素的平方根）（使用map重新格式化数组中的对象）
+（使用一个包含一个参数的函数来mapping（构建）一个数组数组）
+（一般的map方法）（querySelectorAll 应用）（使用技巧案例）
 ```
 <br>
 <br>
 
 
-<h6 id="Array.reduce" style="background:#676767;color:#fff;padding: 10px;">Array.reduce</h6>
+<h6 id="Array.prototype.reduce" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.reduce</h6>
 
 ```
 //  每个元素执行函数，将其结果汇总为单个返回值
@@ -565,12 +540,14 @@ console.log(array1.reduce(reducer));
 // 5 + 1 + 2 + 3 + 4
 console.log(array1.reduce(reducer, 5));
 // expected output: 15
+（数组中所有值的和）（累加对象数组里的值）（将二位数组转化为一维）（计算数组中每个元素出现的次数）（按属性对object分类）
+（使用扩展运算符和initialValue绑定包含在对象数组中的数组）（数组去重）（按顺序运行Promise）（功能型函数管道）
 ```
 <br>
 <br>
 
 
-<h6 id="Array.reduceRight" style="background:#676767;color:#fff;padding: 10px;">Array.reduceRight</h6>
+<h6 id="Array.prototype.reduceRight" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.reduceRight</h6>
 
 ```
 //  接受一个函数作为累加器和数组每个值（从右到左）减少为单值
@@ -580,12 +557,13 @@ const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
 
 console.log(array1);
 // expected output: Array [4, 5, 2, 3, 0, 1]
+（求数组所有值的和）（扁平化一个元素为数组的数组）（reduce 与 reduceRight 之间的区别）
 ```
 <br>
 <br>
 
 
-<h6 id="Array.some" style="background:#676767;color:#fff;padding: 10px;">Array.some</h6>
+<h6 id="Array.prototype..some" style="background:#676767;color:#fff;padding: 10px;">Array.prototype..some</h6>
 
 ```
 //  是否至少一个元素通过函数的测试
@@ -598,7 +576,7 @@ var even = function(element) {
 
 console.log(array.some(even));
 // expected output: true
-
+（使用箭头函数测试数组中的元素）（判断数组元素中是否存在某个值）（使用箭头函数判断数组元素中是否存在某个值）（将任意值转换成布尔值）
 ```
 <br>
 <br>
@@ -615,4 +593,61 @@ for (const value of iterator) {
 }
 ```
 <br>
+<br>
+
+
+<h6 id="Array.prototype.filter" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.filter</h6>
+
+```
+//  创建新数组，包含通过提供函数测试的所有元素
+function isBigEnough(element) {
+  return element >= 10;
+}
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// filtered is [12, 130, 44]
+（筛选提出所有较小的值）（过滤 JSON 中无效条目）（在数组中搜索）
+```
+<br>
+<br>
+
+
+<h6 id="Array.prototype.flat" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.flat</h6>
+
+```
+//  按照指定深度递归遍历数组，并将所有元素与遍历的子元素中的元素合并为一个新数组返回
+var arr1 = [1, 2, [3, 4]];
+arr1.flat(); 
+// [1, 2, 3, 4]
+
+var arr2 = [1, 2, [3, 4, [5, 6]]];
+arr2.flat();
+// [1, 2, 3, 4, [5, 6]]
+
+var arr3 = [1, 2, [3, 4, [5, 6]]];
+arr3.flat(2);
+// [1, 2, 3, 4, 5, 6]
+
+//使用 Infinity 作为深度，展开任意深度的嵌套数组
+arr3.flat(Infinity); 
+// [1, 2, 3, 4, 5, 6]
+
+（扁平化嵌套数组）（扁平化与空项）
+```
+<br>
+<br>
+
+
+
+<h6 id="Array.prototype.values" style="background:#676767;color:#fff;padding: 10px;">Array.prototype.values</h6>
+
+```
+//  返回一个新的 Array Iterator 对象，该对象包含数组每个索引的值
+const array1 = ['a', 'b', 'c'];
+const iterator = array1.values();
+
+for (const value of iterator) {
+  console.log(value); // expected output: "a" "b" "c"
+}
+（另一种迭代方式）
+```
 <br>
