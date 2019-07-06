@@ -60,8 +60,9 @@
 <a id="Object.assign">Object.assign</a>
 
 ```
-// 将所有可枚举属性的值从一个或多个源对象复制到目标对象。
-// 如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。后面的源对象的属性将类似地覆盖前面的源对象的属性。
+// 枚举属性复制，返回对象（目标对象也会改变）
+// 后面的覆盖前面的
+// 原始类型会被包装成对象
 
 let obj1 = { a: 0 , b: { c: 0}}; 
 let obj2 = Object.assign({}, obj1); 
@@ -85,6 +86,14 @@ let obj3 = JSON.parse(JSON.stringify(obj1));
 obj1.a = 4; 
 obj1.b.c = 4; 
 console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
+
+const o1 = { a: 1 };
+const o2 = { b: 2 };
+const o3 = { c: 3 };
+
+const obj = Object.assign(o1, o2, o3);
+console.log(obj); // { a: 1, b: 2, c: 3 }
+console.log(o1);  // { a: 1, b: 2, c: 3 }, 注意目标对象自身也会改变。
 
 ```
 
@@ -402,7 +411,7 @@ Object.isExtensible(sealed); // === false
 
 <a id="Object.getOwnPropertyDescriptor">Object.getOwnPropertyDescriptor</a>
 ```
-// 返回对象上一个自有属性对应的描述符 
+// （Object）属性对应的描述符 
 // (自有属性是直接赋予该对象的属性，不需要从原型链上进行查找)
 
 var o, d;
@@ -445,7 +454,7 @@ d = Object.getOwnPropertyDescriptor(o, "baz");
 
 <a id="Object.getOwnPropertyDescriptors">Object.getOwnPropertyDescriptors</a>
 ```
-// 获取一个对象所有的自身属性描述符
+// （Object）所有属性描述
 
 ```
 
@@ -455,7 +464,7 @@ d = Object.getOwnPropertyDescriptor(o, "baz");
 
 <a id="Object.getOwnPropertySymbols">Object.getOwnPropertySymbols</a>
 ```
-// 返回一个对象自身所有 Symbol 属性的数组
+// （Array）所有 Symbol 属性
 var obj = {};
 var a = Symbol("a");
 var b = Symbol.for("b");
@@ -529,7 +538,7 @@ console.log(Object.values('foo')); // ['f', 'o', 'o']
 
 <a id="Object.prototype.hasOwnProperty">Object.prototype.hasOwnProperty</a>
 ```
-// 用来检测一个对象是否含有特定的自身属性，该方法会忽略掉原型链继承的属性
+// （布尔值）检测属性，忽略继承
 var foo = {
     hasOwnProperty: function() {
         return false;
@@ -552,7 +561,7 @@ Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
 
 <a id="Object.get​OwnProperty​Names">Object.get​OwnProperty​Names</a>
 ```
-// 返回一个数组，由对象所有自身属性的属性名
+// （Array）返回自身所有属性名称
 // 包含不可枚举
 var arr = ["a", "b", "c"];
 console.log(Object.getOwnPropertyNames(arr).sort()); // ["0", "1", "2", "length"]
@@ -589,7 +598,6 @@ console.log(Object.getOwnPropertyNames(my_obj).sort()); // ["foo", "getFoo"]
 <a id="Object.getPrototypeOf">Object.getPrototypeOf</a>
 ```
 // 返回对象的原型
-// 内部 [[ Prototype ]] 属性的值
 var proto = {};
 var obj = Object.create(proto);
 Object.getPrototypeOf(obj) === proto; // true
@@ -640,7 +648,7 @@ Object.is(NaN, 0/0);         // true
 
 <a id="Object.prototype.isPrototypeOf">Object.prototype.isPrototypeOf</a>
 ```
-  // 测试一个对象是否存在于另一个对象的原型链上
+// （布尔值）检查对象是否在另一个对象的原型链上
 function Foo() {}
 function Bar() {}
 function Baz() {}
@@ -662,7 +670,7 @@ console.log(Object.prototype.isPrototypeOf(baz)); // true
 
 <a id="Object.prototype​.propertyIsEnumerable">Object.prototype​.propertyIsEnumerable</a>
 ```
-// 返回一个布尔值，表示指定属性是否可枚举
+// （布尔值）属性是否可枚举，继承除外
 var o = {};
 var a = [];
 o.prop = 'is enumerable';
