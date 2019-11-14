@@ -42,7 +42,7 @@
 
 // 数据属性       访问器属性
 // configurable   configurable      是否可删除   (不可修改)
-// enumerable     enumerable        for-in 循环
+// enumerable     enumerable        是否可 for-in 循环
 // writable                         是否可修改
 // value          
 //                Get
@@ -94,6 +94,7 @@ const o3 = { c: 3 };
 const obj = Object.assign(o1, o2, o3);
 console.log(obj); // { a: 1, b: 2, c: 3 }
 console.log(o1);  // { a: 1, b: 2, c: 3 }, 注意目标对象自身也会改变。
+console.log(o2);  // { b: 2 }
 
 ```
 

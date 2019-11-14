@@ -83,7 +83,7 @@ console.log(array2) //  1, 2, 3
 ```
 //  通过指定的分割符进行分割，然后返回一个字符串
 var array = [1, 2, 3];
-var array2 = array.jon(".");
+var array2 = array.join(".");
 console.log(array2); // 1.2.3
 （使用四中不同的分隔符连接元素）（连接类数组对象）
 ```
