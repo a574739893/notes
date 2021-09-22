@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>汇总</title>
 </head>
 <body>
 <p>Array</p>
@@ -32,13 +32,23 @@
 		hasOwnProperty、isPrototypeOf、propertyIsEnumerable
 		getOwnPropertyDescriptor、getOwnPropertyDescriptors
 		getOwnPropertyNames、getOwnPropertySymbols
-		getOwnPrototypeOf
+		getPrototypeOf
+		keys、values、is、toString、toLocaleString
 
 		configurable、enumerable、writable
 		parse、stringify
 		call、apply、bind
 		arguments.callee
-		construstor、instanceof、isPrototypeOf
+		constructor、instanceof、isPrototypeOf
+	</code>
+</pre>
+<p>String</p>
+<pre>
+	<code>
+		charAt、charCodeAt、indexOf、lastIndexOf
+		substr、substring、slice
+		replace、search、match
+		toLowerCase、toUpperCase、split
 	</code>
 </pre>
 <p>Dom</p>
@@ -70,12 +80,60 @@
 		rotate、skew、scale、translate
 		flex-direction、flex-wrap、flex-flow
 		row-reverse、column-reverse
-		nowrap、warp-reverse
+		nowrap、wrap-reverse
 		justify-content、align-item、align-content
 		flex-start、flex-end、space-between、space-aroud
 		baseline、stretch
 		order、flex-grow、flex-shrink、flex-basis、align-self
 	</code>
+</pre>
+<p>js</p>
+<pre>
+	<code>
+		use strict
+		switch、case、default
+		import、require、export、export default
+		continue、break、undefinde
+	</code>
+</pre>
+<p>Date</p>
+<pre>
+	<code>
+		getFullYear、getMonth、getDate
+		getDay、getHours、getMinutes、getSeconds
+	</code>
+</pre>
+<p>vue</p>
+<pre>
+	<code>
+		el、data、methods、components
+		watch、computed、filters
+		template、render
+		beforeEach、beforeResolve、afterEach
+		beforeCreate、create、beforeMount、mounted
+		beforeUpdate、update、beforeDestroy、destroyed
+	</code>
+</pre>
+<style>
+	ul { list-style-type: decimal; }
+	ul span { color: #e83e8c; }
+</style>
+<p>路由</p>
+<pre>
+	<ul>
+	    <li>导航被触发。</li>
+	    <li>在失活的组件里调用离开守卫。</li>
+	    <li>调用全局的 <span>beforeEach</span> 守卫。</li>
+	    <li>在重用的组件里调用 <span>beforeRouteUpdate</span> 守卫 (2.2+)。</li>
+	    <li>在路由配置里调用 <span>beforeEnter。</span></li>
+	    <li>解析异步路由组件。</li>
+	    <li>在被激活的组件里调用 <span>beforeRouteEnter。</span></li>
+	    <li>调用全局的 <span>beforeResolve</span> 守卫 (2.5+)。</li>
+	    <li>导航被确认。</li>
+	    <li>调用全局的 <span>afterEach</span> 钩子。</li>
+	    <li>触发 DOM 更新。</li>
+	    <li>用创建好的实例调用 <span>beforeRouteEnter</span> 守卫中传给 <span>next</span> 的回调函数。</li>
+	</ul>
 </pre>
 </body>
 </html>
